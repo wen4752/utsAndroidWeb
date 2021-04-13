@@ -29,8 +29,15 @@
     <ion-range min="0" max="10" step="1" [(ngModel)]='nilai'></ion-range>
   </ion-item>
 
+  <ion-item>
+    <ion-label>Gambar</ion-label>
+    <ion-button (click)='ambilGambar()'><ion-icon name='camera-outline'></ion-icon></ion-button>
+  </ion-item>
+
   <ion-button color='warning' expand='block' (click)="update()">update</ion-button>
 
   <ion-img [src]='srcgambar'></ion-img>
   {{url}}
+
+
 </ion-content>

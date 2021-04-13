@@ -3,6 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { AngularFireStorage } from '@angular/fire/storage';
 import { ActivatedRoute } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { FotoService } from '../services/foto.service';
 
 @Component({
   selector: 'app-detail',
@@ -11,7 +12,7 @@ import { ToastController } from '@ionic/angular';
 })
 export class DetailPage implements OnInit {
   isiDataColl:AngularFirestoreCollection
-  constructor(private aroute:ActivatedRoute, afs:AngularFirestore, public toastController:ToastController,private afStorage:AngularFireStorage) { 
+  constructor(private fotoservice:FotoService,private aroute:ActivatedRoute, afs:AngularFirestore, public toastController:ToastController,private afStorage:AngularFireStorage) { 
     this.isiDataColl=afs.collection('notedb')   
   }
   judul
@@ -37,14 +38,7 @@ export class DetailPage implements OnInit {
           itemRef.getDownloadURL().then((url)=>{      
             if(this.gambar==itemRef.name){
               this.srcgambar=url
-            }      
-            this.urlImageStorage.unshift({
-              url:url,
-              nama:itemRef.name,
-              itemRef:itemRef
-            })
-            
-            
+            }                  
           })
         })
       }).catch((error)=>{
@@ -61,6 +55,10 @@ export class DetailPage implements OnInit {
       nilai:this.nilai
     })
     this.presentToast("update berhasil")
+  }
+  async ambilGambar(){
+    await this.fotoservice.tambahFoto()
+    
   }
 
   async presentToast(message) {
