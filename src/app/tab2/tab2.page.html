@@ -7,11 +7,26 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <div *ngFor='let data of isiData | async'>
+    <ion-card color='warning' (click)='detail(data.judul,data.isi,data.tanggal,data.nilai,data.gambar)'>
+      <ion-card-header >        
+        <IonCardTitle>{{data.tanggal}}</IonCardTitle>
+      </ion-card-header>
+    
+      <ion-card-content>
+
+        <ion-item color='warning'>
+          <ion-label>Judul</ion-label>
+          {{data.judul}}  
+        </ion-item>     
+
+        <ion-item color='warning'>
+          <ion-label>Nilai</ion-label>
+          {{data.nilai}}
+        </ion-item>     
+        
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>
