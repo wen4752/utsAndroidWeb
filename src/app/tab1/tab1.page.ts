@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -8,7 +10,13 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  isiDataColl:AngularFirestoreCollection
+
+  
+  constructor(afs:AngularFirestore) {
+    this.isiDataColl=afs.collection('notedb')
+    
+  }
   judul:string
   isi:string
   nilai
@@ -21,8 +29,13 @@ export class Tab1Page {
       tanggal:today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate(),
       nilai:this.nilai
     }
+    this.isiDataColl.doc().set(data)
   }
 }
+
+
+
+
 export interface note_interface{
   judul:string,
   isi:string,
