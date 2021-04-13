@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Input Data
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-label>Judul</ion-label>
+    <ion-input [(ngModel)]="judul"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label>Isi</ion-label>
+    <ion-textarea [(ngModel)]="isi"></ion-textarea>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Nilai</ion-label>
+    <ion-range min="0" max="10" step="1" [(ngModel)]='nilai'></ion-range>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Gambar</ion-label>
+    <ion-range min="0" max="10" step="1" [(ngModel)]='nilai'></ion-range>
+  </ion-item>
+
+  <ion-button expand='block' (click)="tambah()">Add</ion-button>
+
+</ion-content>
