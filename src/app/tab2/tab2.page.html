@@ -12,6 +12,7 @@
     <ion-card color='warning' (click)='detail(data.judul,data.isi,data.tanggal,data.nilai,data.gambar)'>
       <ion-card-header >        
         <IonCardTitle>{{data.tanggal}}</IonCardTitle>
+        
       </ion-card-header>
     
       <ion-card-content>
@@ -25,7 +26,7 @@
           <ion-label>Nilai</ion-label>
           {{data.nilai}}
         </ion-item>     
-        
+        <ion-button color='danger' (click)=delete(data.judul)>Delete</ion-button>
       </ion-card-content>
     </ion-card>
   </div>

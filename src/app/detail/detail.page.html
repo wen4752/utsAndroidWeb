@@ -1,9 +1,32 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>detail</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-item>
+    <ion-label>Judul</ion-label>
+    <h3>{{judul}}</h3>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label>Isi</ion-label>
+    <ion-textarea [(ngModel)]="isi"></ion-textarea>
+  </ion-item>
 
+  <ion-item>
+    <ion-label>Tanggal</ion-label>
+    <ion-input [(ngModel)]="tanggal"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Nilai</ion-label>
+    <ion-range min="0" max="10" step="1" [(ngModel)]='nilai'></ion-range>
+  </ion-item>
+
+  <ion-button color='warning' expand='block' (click)="update()">update</ion-button>
 </ion-content>

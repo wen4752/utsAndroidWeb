@@ -7,7 +7,7 @@ const routes: Routes = [
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
-    path:'detail/:judul/:isi/:tanggal/:nilai/:gambar',
+    path:'detail/:judul/:isi/:tanggal/:nilai',
     loadChildren:()=>import('./detail/detail.module').then(m=>m.DetailPageModule)
   }
 ];
