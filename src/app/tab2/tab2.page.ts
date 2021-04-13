@@ -21,7 +21,7 @@ export class Tab2Page {
   }
   detail(judul,isi,tanggal,nilai,gambar){
     console.log(judul,isi,tanggal,nilai,gambar)
-    this.router.navigate(['/detail',judul,isi,tanggal,nilai])
+    this.router.navigate(['/detail',judul,isi,tanggal,nilai,gambar])
     
   }
   delete(judul){

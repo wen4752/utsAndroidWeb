@@ -8,6 +8,7 @@
 </ion-header>
 
 <ion-content>
+
   <ion-item>
     <ion-label>Judul</ion-label>
     <h3>{{judul}}</h3>
@@ -29,4 +30,7 @@
   </ion-item>
 
   <ion-button color='warning' expand='block' (click)="update()">update</ion-button>
+
+  <ion-img [src]='srcgambar'></ion-img>
+  {{url}}
 </ion-content>
